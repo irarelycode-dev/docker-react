@@ -15,10 +15,3 @@ script:
 #   on:
 #     branch: master
 
-deploy:
-  provider: netlify
-  edge: true
-  site: "https://angry-pasteur-ad0fd5.netlify.app"
-  dir: "_build/"
-  on:
-    branch: master
