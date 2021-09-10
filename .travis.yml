@@ -17,5 +17,8 @@ script:
 
 deploy:
   provider: netlify
+  edge: true
   site: "https://angry-pasteur-ad0fd5.netlify.app"
   dir: "/build"
+  on:
+    branch: master
