@@ -1,6 +1,6 @@
 sudo: required
 services:
-  - docker 
+  - docker
 before_install:
   - docker build -t irarelycode/docker-react -f Dockerfile.dev .
 script:
@@ -19,8 +19,6 @@ deploy:
   provider: netlify
   edge: true
   site: "https://angry-pasteur-ad0fd5.netlify.app"
-  dir: "/build"
-  auth:
-    secure: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCxC60vS6SEPoJ3RSi2I6y+xdYDSFGirnqcUFReqEVAHjf+k4kmq1OYjzDrxjtFnve0OfwW6L2JDZ5IQw3p/X4mWdDhsQoEGb7ei7WcWrV7ovK2iF1QyyK3hcRdHWW7pFWdCIekIWYfx6BJjkM7UEJ3lAIQSsRNCPS+XxsxyAXaxyC1b51vDJUx6HB+G0ehIyahWLT3YxDH52kej/HZ+zPst/iIwzrlmc9zmYpXXkUhCkZbGt/uMx37imw280wbR9KNq6fyE854N89gzkVtIwdJCtrkMqVp5QEY2PTWYPG0bR34qvUXTT0HsjQeCH5zsJnLBUAzQnQZCfU2dq+vUV8h/XO9rx5G5FMdSSkuQZoVXeQMwWOjjFuneRUNeehUuH6tSySPqWawncQlVFoki4cgqIc70WVhTlt9nuuxXdTcnM2Qc7Fa+QSMDCPD/NRvWNF+/CICSY49qrhqvfiKCL8343AYf/t02cFNvVnEsbeIqn1Gej4D+szmJzV6z7evb9ZjXHcZhQgG4P9Jaj834cQ+vN8N+Oz7yuoSAyQa66DeBVLdLh59QMxWJ+z/AtgPPiEr3/OjS3Xccfmiccptw7xSNQK5UInRR6dWQw+yJwW5djq65qmbyTLOy7gNdpyR66SxejGYfSzsoKgqyUUJIoFUgBNmfJ/RVQcltP7QBaEegQ=="
+  dir: "_build/"
   on:
     branch: master
