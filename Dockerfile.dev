@@ -1,9 +1,11 @@
 FROM node:alpine
 WORKDIR '/app'
-COPY package.json .
+COPY package.json /app
+RUN mkdir -p /app/node_modules
+RUN chown node:node /app/node_modules
 RUN ["npm","install"]
-COPY . .
+COPY ./ /app
 CMD ["npm","run","start"]
 
 
-#alpine indicates the smallest image possible 
+#alpine indicates the smallest linux based image possible 
