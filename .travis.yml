@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker       #travis cli needs docker cli to be installed. docker cli needs a copy of docker to run
 before_install:
-  - docker build -t irarelycode/docker-react -f Dockerfile.dev .  #runs before deploying the project
+  - docker build -t irarelycode/docker-react -f Dockerfile .  #runs before deploying the project
 script:   #commands needed to run test suites,all commands below this needs to be 
   - docker run -e CI=true irarelycode/docker-react npm run test -- --coverage
 deploy:
