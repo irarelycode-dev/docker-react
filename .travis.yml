@@ -5,18 +5,22 @@ before_install:
   - docker build -t irarelycode/docker-react -f Dockerfile.dev .  #runs before deploying the project
 script:   #commands needed to run test suites,all commands below this needs to be 
   - docker run -e CI=true irarelycode/docker-react npm run test -- --coverage
-# deploy:
-#   provider: elasticbeanstalk
-#   region: "us-west-2"
-#   app: "docker-react"
-#   env:  "docker-react-env"
-#   bucket_name:  "elasticbeanstalk-us-west-2-304383927493402"
-#   bucket_path: "docker-react"
-#   on:
-#     branch: master
-#   access_key_id:  $AWS_ACCESS_KEY
-#   secret_access_key:
-#     secure: "$AWS_SECRET_KEY"      
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-react"
+  env:  "Dockerreact-env"
+  bucket_name:  "elasticbeanstalk-ap-south-1-218617723705"            
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id:  $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"      
 
 
 # set these keys in iAM service of aws 
+# bucket_name is the s3 bucket where ou zipped code file will be stored
+# bucket_path is same as appname
+# $ sign indicates environment variables 
+
