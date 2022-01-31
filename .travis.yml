@@ -1,27 +1,24 @@
 sudo: required
 services:
-  - docker       #travis cli needs docker cli to be installed. docker cli needs a copy of docker to run
+  - docker #travis cli needs docker cli to be installed. docker cli needs a copy of docker to run
 before_install:
-  - docker build -t irarelycode/docker-react -f Dockerfile .  #runs before deploying the project
-#script:   #commands needed to run test suites,all commands below this needs to be 
- #- docker run -e CI=true irarelycode/docker-react npm run test -- --coverage
+  - docker build -t irarelycode/docker-react -f Dockerfile.dev . #runs before deploying the project
+script: #commands needed to run test suites,all commands below this needs to be
+  - docker run -e CI=true irarelycode/docker-react npm run test -- --coverage
 deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
   app: "docker-react"
-  env:  "Dockerreact-env-1"
-  bucket_name:  "elasticbeanstalk-ap-south-1-218617723705"            
+  env: "Dockerreact-env-1"
+  bucket_name: "elasticbeanstalk-ap-south-1-218617723705"
   bucket_path: "docker-react"
   on:
     branch: master
-  access_key_id:  $AWS_ACCESS_KEY_ID
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY"      
-
-
-# set these keys in iAM service of aws 
+  # access_key_id:  $AWS_ACCESS_KEY_ID
+  # secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+# set these keys in iAM service of aws
 # bucket_name is the s3 bucket where ou zipped code file will be stored
 # bucket_path is same as appname
-
 
 # name the access and secret keys different.
 # AWS_ACCESS_KEY_ID
