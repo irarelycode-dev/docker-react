@@ -14,13 +14,16 @@ deploy:
   bucket_path: "docker-react"
   on:
     branch: master
-  access_key_id:  $AWS_ACCESS_KEY
+  access_key_id:  $AWS_ACCESS_KEY_ID
   secret_access_key:
-    secure: "$AWS_SECRET_KEY"      
+    secure: "$AWS_SECRET_ACCESS_KEY"      
 
 
 # set these keys in iAM service of aws 
 # bucket_name is the s3 bucket where ou zipped code file will be stored
 # bucket_path is same as appname
-# $ sign indicates environment variables 
 
+
+# name the access and secret keys different.
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
